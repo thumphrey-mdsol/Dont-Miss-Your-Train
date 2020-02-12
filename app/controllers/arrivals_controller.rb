@@ -1,0 +1,3 @@
+class ArrivalsController < ApplicationController
+
+end

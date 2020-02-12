@@ -1,0 +1,8 @@
+<h1> Stations </h1>
+
+<% @stations.each do |station| %>
+    <div class="container p-3 my-3 border">
+    <p>
+    <%= link_to station.name, station %>
+    </p></div>
+<%end %>

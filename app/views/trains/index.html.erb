@@ -1,0 +1,9 @@
+<h1>They trainsss, biitch</h1>
+
+<% @trains.each do |train|%>
+    <div class="container p-3 my-3 border">
+    <h4>Line: </h4>
+    <%= train.name %>
+    <%= train.status %>
+    </div>
+<%end%>

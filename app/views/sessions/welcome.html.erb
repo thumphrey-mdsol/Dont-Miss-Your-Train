@@ -1,0 +1,9 @@
+<h1>Welcome!</h1>
+
+<% if @error %>
+        <p>Error! <%= @error%></p>
+<%end %>
+
+<%= button_to  "Login", '/login', method: :get %>
+<%= button_to  "Sign Up", '/users/new', method: :get %>
+<%= button_to  "Logout", logout_path, method: :post %>

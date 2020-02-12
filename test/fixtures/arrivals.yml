@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  train_id: 1
+  station_id: 1
+  arrival_time: MyString
+
+two:
+  train_id: 1
+  station_id: 1
+  arrival_time: MyString

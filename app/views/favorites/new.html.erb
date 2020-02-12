@@ -1,0 +1,14 @@
+<h1>New Favorite</h1>
+
+<% if @errors %>
+    <% @errors.each do |error|%>
+        <p>Error! <%= error%></p>
+    <%end %>
+<%end %>
+
+
+<%= form_for @favorite do |f| %>
+<%= f.label :station %>
+<%= f.collection_select :station_id, @stations, :id, :name %>
+<%= f.submit 'Favorite'%>
+<% end %>
