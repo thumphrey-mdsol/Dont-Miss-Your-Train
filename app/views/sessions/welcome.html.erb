@@ -4,6 +4,11 @@
         <p>Error! <%= @error%></p>
 <%end %>
 
-<%= button_to  "Login", '/login', method: :get %>
-<%= button_to  "Sign Up", '/users/new', method: :get %>
-<%= button_to  "Logout", logout_path, method: :post %>
+<% if session[:user_id] %>
+        <%= button_to  "Logout", logout_path, method: :post %>
+<%else %>
+        <%= button_to  "Login", '/login', method: :get %>
+        <%= button_to  "Sign Up", '/users/new', method: :get %>
+<%end %>
+
+
