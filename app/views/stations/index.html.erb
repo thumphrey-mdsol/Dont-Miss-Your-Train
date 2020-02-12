@@ -2,7 +2,13 @@
 
 <% @stations.each do |station| %>
     <div class="container p-3 my-3 border">
-    <p>
-    <%= link_to station.name, station %>
-    </p></div>
+    <h5><%= link_to station.name, station %></h5>
+    <%if station.trains.length > 0 %>
+        <h6>Lines: <ul><% station.trains.each do |train|%></h6>
+            <li><%= train.name%></li>
+        <%end %></ul>
+    <%else %>
+        This station is out of service.
+    <%end %>
+    </div>
 <%end %>
