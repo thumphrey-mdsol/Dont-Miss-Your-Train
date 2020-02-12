@@ -1,13 +1,13 @@
 <h1><%=@user.user_name.capitalize%>'s Favorites</h1>
 
-<h3>Favorite stations:</h3>
 <%@favorites.each do |favorite|%>
     <div class="container p-3 my-3 border">
     Station:<%=favorite.station.name%><br> <%= %>
         <%if favorite.station.trains.length > 0%>
             Train Lines:<ol><%favorite.station.trains.each do |train| %>
-                <li>Line: <%=train.name%> Destination: <%=train.destination%> Status: <%=train.status%>
-                    <ul><%train.arrivals.each do |arrival|%>
+                <li>Line: <%=train.name%> 
+                Destination: <%=train.destination%> Status: <%=train.status%>
+                    <ul><%train.sort_timetable.each do |arrival|%>
                         <li><%=arrival.arrival_time%>:00</li>
                     <%end%></ul>
                 </li>
