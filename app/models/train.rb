@@ -12,14 +12,29 @@ class Train < ApplicationRecord
         response["service"]["subway"]["line"][0..-2].each do |line|
             if line["text"] == nil
                 line["name"].split("").each{|indiv| 
-                    train = Train.find_by(name: indiv)
+                    train = Train.find_by(name: indiv, destination: "Uptown")
                     train.update(name: indiv, status: line["status"])
                 }
             else
                 line["text"] = line["text"].gsub("<br clear=left>"," ")
                 elaboration = Nokogiri::HTML(CGI.unescapeHTML(line["text"])).content.squish
                 line["name"].split("").each{|indiv| 
-                    train = Train.find_by(name: indiv)
+                    train = Train.find_by(name: indiv, destination: "Uptown")
+                    train.update(name: indiv, status: line["status"], status_description: elaboration)
+                }
+            end
+        end
+        response["service"]["subway"]["line"][0..-2].each do |line|
+            if line["text"] == nil
+                line["name"].split("").each{|indiv| 
+                    train = Train.find_by(name: indiv, destination: "Downtown")
+                    train.update(name: indiv, status: line["status"])
+                }
+            else
+                line["text"] = line["text"].gsub("<br clear=left>"," ")
+                elaboration = Nokogiri::HTML(CGI.unescapeHTML(line["text"])).content.squish
+                line["name"].split("").each{|indiv| 
+                    train = Train.find_by(name: indiv, destination: "Downtown")
                     train.update(name: indiv, status: line["status"], status_description: elaboration)
                 }
             end

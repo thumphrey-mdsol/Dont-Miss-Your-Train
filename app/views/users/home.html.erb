@@ -4,7 +4,7 @@
 <%@favorites.each do |favorite|%>
     <div class="container p-3 my-3 border">
     <h2><%=favorite.label%> Station:</h2>
-    Station:<%=favorite.station.name%><br> <%= %>
+    Station: <%=favorite.station.name%><br> <%= %>
         <%if favorite.station.trains.length > 0%>
             Train Lines:<ul><%favorite.station.trains.each do |train| %>
                 <li>Line: <%=train.name%> <br>

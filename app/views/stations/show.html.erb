@@ -1,0 +1,18 @@
+<h2><%= @station.name %></h2>
+<h4>Lines: </h4>
+<%if @trains.length > 0 %>
+    <% @trains.each do |train| %>
+        <div class="container p-3 my-3 border">
+        Train: <%= train.name %><br>
+        Direction: <%= train.destination %><br>
+        Times:
+        <ul><% train.sort_timetable.each do |arrival|%>
+            <li><%= arrival.arrival_time%>:00</li>
+        <% end%></ul>
+        </div>
+    <%end %>
+<%else %>
+    <div class="container p-3 my-3 border">
+    This station is out of service.
+    </div>
+<%end %>

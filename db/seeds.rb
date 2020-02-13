@@ -23,8 +23,6 @@ puts "seeding primary models"
     Station.create(name: Faker::Address.street_address)
 end
 
-
-# Thread.new do
     puts "creating train lines"
     response_string = RestClient.get('http://web.mta.info/status/serviceStatus.txt')
     response_string.gsub!("NQR","NQRW")
@@ -49,7 +47,6 @@ end
             line["name"].split("").each{|indiv| Train.create(name: indiv, status: line["status"], status_description: elaboration, img_url: Faker::Avatar.image, destination: "Downtown")}
         end
     end
-# end.join
 
 puts "seeding arrivals"
 200.times do
