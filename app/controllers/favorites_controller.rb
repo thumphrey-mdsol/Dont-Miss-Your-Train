@@ -12,7 +12,7 @@ class FavoritesController < ApplicationController
             redirect_to home_path
         else
             flash[:error] = @favorite.errors.full_messages
-            redirect_to new_ul_path
+            redirect_to new_favorites_path
         end
     end
 

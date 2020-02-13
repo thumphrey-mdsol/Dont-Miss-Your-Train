@@ -1,7 +1,19 @@
 <h1> Stations </h1>
 
+<h4>Search by Station</h4>
+    <%=form_tag(stations_path, method: :get) do%>
+    <%=text_field_tag(:search, params[:search])%>  
+    <%=submit_tag ("Search"), name: "nil"%>
+<%end%>
+
 <% @stations.each do |station| %>
     <div class="container p-3 my-3 border">
+<<<<<<< HEAD
+    <p>
+    <%= link_to station.name, station %>
+    </p></div>
+<%end %>
+=======
     <h5><%= link_to station.name, station %></h5>
     <%if station.trains.length > 0 %>
         <h6>Lines: <ul><% station.trains.each do |train|%></h6>
@@ -12,3 +24,4 @@
     <%end %>
     </div>
 <%end %>
+>>>>>>> 54f2997b0ceae4c8be15957ad1a7e6349c722d6c
