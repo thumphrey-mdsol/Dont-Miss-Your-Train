@@ -23,6 +23,22 @@ class UsersController < ApplicationController
         @favorites = @user.favorites
         @stations = @user.stations
     end
+
+    def edit
+        @user = User.find(session[:user_id])
+        @errors = flash[:errors]
+    end
+
+    def update
+        user = User.find(session[:user_id])
+        if user.valid?
+            user.update(user_params)
+            redirect_to home_path
+        else
+            flash[:errors] = user.errors.full_messages
+            redirect_to edit_user_path
+        end
+    end
     
     
     private
