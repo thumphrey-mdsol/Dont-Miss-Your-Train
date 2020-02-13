@@ -17,23 +17,42 @@ puts "destroying Update"
 Arrival.destroy_all
 
 
-subway_names = ["1","2","A","3","Q","4","S","5","R","W"]
-destinations_array = ["Uptown","Downtown"]
-status_array = [ "MULTIPLE IMPACTS", "delayed", "good service", "track cleanup", "planned work"]
-
 puts "seeding primary models"
-10.times do
-    User.create(user_name: Faker::Name.name, password: "BEEF", email: Faker::Internet.email)
+100.times do
+    # User.create(user_name: Faker::Name.name, password: "BEEF", email: Faker::Internet.email)
     Station.create(name: Faker::Address.street_address)
-    Train.create(name: subway_names.sample, color: Faker::Color.color_name, img_url: Faker::Avatar.image, destination: destinations_array.sample, status: status_array.sample)
 end
 
 
-puts "seeding joiner models"
-15.times do
+# Thread.new do
+    puts "creating train lines"
+    response_string = RestClient.get('http://web.mta.info/status/serviceStatus.txt')
+    response_string.gsub!("NQR","NQRW")
+    response = JSON.parse(Hash.from_xml(response_string).to_json)
+    response["service"]["subway"]["line"][0..-2].each do |line|
+        if line["text"] == nil
+            line["name"].split("").each{|indiv| 
+                Train.create(name: indiv, status: line["status"], status_description: "N/A", img_url: Faker::Avatar.image, destination: "Uptown")
+            }
+        else
+            line["text"] = line["text"].gsub("<br clear=left>"," ")
+            elaboration = Nokogiri::HTML(CGI.unescapeHTML(line["text"])).content.squish
+            line["name"].split("").each{|indiv| Train.create(name: indiv, status: line["status"], status_description: elaboration, img_url: Faker::Avatar.image, destination: "Uptown")}
+        end
+    end
+    response["service"]["subway"]["line"][0..-2].each do |line|
+        if line["text"] == nil
+            line["name"].split("").each{|indiv| Train.create(name: indiv, status: line["status"], status_description: "N/A", img_url: Faker::Avatar.image, destination: "Downtown")}
+        else
+            line["text"] = line["text"].gsub("<br clear=left>"," ")
+            elaboration = Nokogiri::HTML(CGI.unescapeHTML(line["text"])).content.squish
+            line["name"].split("").each{|indiv| Train.create(name: indiv, status: line["status"], status_description: elaboration, img_url: Faker::Avatar.image, destination: "Downtown")}
+        end
+    end
+# end.join
 
-    Favorite.create(user_id: rand(User.first.id..User.last.id), station_id: rand(Station.first.id..Station.last.id))
-
+puts "seeding arrivals"
+1000.times do
     Arrival.create(station_id:  rand(Station.first.id..Station.last.id), train_id: rand(Train.first.id..Train.last.id), arrival_time: rand(1..24))
-
+    
 end
