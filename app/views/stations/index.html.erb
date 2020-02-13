@@ -9,6 +9,8 @@
 <% @stations.each do |station| %>
     <div class="container p-3 my-3 border">
     <h5><%= link_to station.name, station %></h5>
+   
+
     <%if station.trains.length > 0 %>
         <h6>Lines: <ul><% station.trains.each do |train|%></h6>
             <li><%= train.name%></li>
@@ -16,5 +18,12 @@
     <%else %>
         This station is out of service.
     <%end %>
+    
+
+    <%= form_for @fav do |f|%>
+    <%= f.hidden_field :user_id, :value => session[:user_id] %>
+    <%=f.hidden_field :station_id, :value => station.id %>
+    <%= f.submit %>
+    <%end%>
     </div>
 <%end %>
