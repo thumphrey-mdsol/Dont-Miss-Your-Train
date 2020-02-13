@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_12_162949) do
+ActiveRecord::Schema.define(version: 2020_02_13_184737) do
 
   create_table "arrivals", force: :cascade do |t|
     t.integer "train_id"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2020_02_12_162949) do
     t.integer "station_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "label"
   end
 
   create_table "stations", force: :cascade do |t|
