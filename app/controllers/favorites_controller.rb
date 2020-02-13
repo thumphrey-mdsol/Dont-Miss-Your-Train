@@ -6,7 +6,7 @@ class FavoritesController < ApplicationController
     end
 
     def create
-        @favorite = Favorite.new(user_id: session[:user_id], station_id: favorites_params[:station_id])
+        @favorite = Favorite.new(user_id: session[:user_id], station_id: favorites_params[:station_id], label: favorites_params[:label])
         if @favorite.valid?
             @favorite.save
             redirect_to home_path
@@ -25,7 +25,7 @@ class FavoritesController < ApplicationController
 
     private
     def favorites_params
-        params.require(:favorite).permit(:station_id)
+        params.require(:favorite).permit(:station_id, :label)
     end
     
 end
