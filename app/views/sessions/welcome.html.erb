@@ -5,6 +5,7 @@
 <%end %>
 
 <% if session[:user_id] %>
+        
         <%= button_to  "Logout", logout_path, method: :post %>
 <%else %>
         <%= button_to  "Login", '/login', method: :get %>

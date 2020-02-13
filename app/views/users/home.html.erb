@@ -4,14 +4,14 @@
     <div class="container p-3 my-3 border">
     Station:<%=favorite.station.name%><br> <%= %>
         <%if favorite.station.trains.length > 0%>
-            Train Lines:<ol><%favorite.station.trains.each do |train| %>
-                <li>Line: <%=train.name%> 
-                Destination: <%=train.destination%> Status: <%=train.status%>
+            Train Lines:<ul><%favorite.station.trains.each do |train| %>
+                <li>Line: <%=train.name%> <br>
+                Destination: <%=train.destination%>  <br> Status: <%=train.status%> <br>
                     <ul><%train.sort_timetable.each do |arrival|%>
                         <li><%=arrival.arrival_time%>:00</li>
                     <%end%></ul>
                 </li>
-            <%end%></ol>
+            <%end%></ul>
         <%else%>
             <p><%= "This station is not in use"%></p>
         <%end%>
