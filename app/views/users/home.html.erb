@@ -8,7 +8,7 @@
             Train Lines:<ul><%favorite.station.trains.each do |train| %>
                 <li>Line: <%=train.name%> <br>
                 Destination: <%=train.destination%>  <br> Status: <%=train.status%> <br>
-                    <ul><%train.sort_timetable.each do |arrival|%>
+                    <ul><%train.closest_time.each do |arrival|%>
                         <li><%=arrival.arrival_time%>:00</li>
                     <%end%></ul>
                 </li>
@@ -23,4 +23,4 @@
 
 
 
-
+<%= button_to "Edit My Profile", edit_user_path(session[:user_id]), method: :get%>

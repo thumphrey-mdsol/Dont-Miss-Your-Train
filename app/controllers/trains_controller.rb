@@ -3,6 +3,7 @@ class TrainsController < ApplicationController
     def index
         # Train.refresh
         @trains = Train.all
+        
     end
     
 end

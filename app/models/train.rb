@@ -36,4 +36,8 @@ class Train < ApplicationRecord
     #         end
     #     end.join
     # end
+
+    def closest_time
+       self.sort_timetable.select{|time| time.arrival_time.to_i >= Time.now.hour}[0..3] 
+    end
 end
