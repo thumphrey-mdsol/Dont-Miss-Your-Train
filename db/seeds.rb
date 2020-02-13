@@ -18,7 +18,7 @@ Arrival.destroy_all
 
 
 puts "seeding primary models"
-100.times do
+25.times do
     # User.create(user_name: Faker::Name.name, password: "BEEF", email: Faker::Internet.email)
     Station.create(name: Faker::Address.street_address)
 end
@@ -52,7 +52,7 @@ end
 # end.join
 
 puts "seeding arrivals"
-1000.times do
+200.times do
     Arrival.create(station_id:  rand(Station.first.id..Station.last.id), train_id: rand(Train.first.id..Train.last.id), arrival_time: rand(1..24))
     
 end
