@@ -7,7 +7,7 @@
         Direction: <%= train.destination %><br>
         Times:
         <ul><% train.sort_timetable.each do |arrival|%>
-            <li><%= arrival.arrival_time%>:00</li>
+            <li><%= arrival.arrival_time%></li>
         <% end%></ul>
         </div>
     <%end %>

@@ -4,6 +4,17 @@
     <div class="container p-3 my-3 border">
     <h4>Line: </h4>
     <h5><%= train.name %></h5>
-    Line status: <%= train.status %>
+    <% if train.status%>
+        Line status: <%= train.status %><br>
+    <%else%>
+        Line status: GOOD SERVICE<br>
+    <%end%>
+
+    <% if train.status_description%>
+        Description: <%= train.status_description %>
+    <%else%>
+        Description: GOOD SERVICE
+    <%end%>
+        
     </div>
 <%end%>
