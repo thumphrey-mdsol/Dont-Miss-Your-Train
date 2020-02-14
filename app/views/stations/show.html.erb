@@ -1,8 +1,16 @@
+<div class="parent-flex">
+    <div class="title-box-flex">
+        <div class="title-flex">
 <h2><%= @station.name %></h2>
+</div>
+</div>
+
+<div class="station-main-flex">
+
 <h4>Lines: </h4>
-<%if @trains.length > 0 %>
     <% @trains.each do |train| %>
-        <div class="container p-3 my-3 border">
+        <div class="sub-flex">
+        <div class="content-flex">
         Train: <%= train.name %><br>
         Direction: <%= train.destination %><br>
         Times:
@@ -10,9 +18,8 @@
             <li><%= arrival.arrival_time%></li>
         <% end%></ul>
         </div>
+        </div>
     <%end %>
-<%else %>
-    <div class="container p-3 my-3 border">
-    This station is out of service.
-    </div>
-<%end %>
+
+</div>
+</div>

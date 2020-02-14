@@ -1,7 +1,13 @@
-<div class="container bg-white">
+<div class="parent-flex">
+    <div class="title-box-flex">
+        <div class="title-flex">
 <h1>Welcome!</h1>
 </div>
+</div>
 
+<div class="main-flex">
+<div class="sub-flex">
+<div class="content-flex">
 <% if @error %>
         <p>Error! <%= @error%></p>
 <%end %>
@@ -15,5 +21,8 @@
         </div>
         <%# button_to  "Login", '/login', method: :get %>
 <%end %>
-
+</div>
+</div>
+</div>
+</div>
 

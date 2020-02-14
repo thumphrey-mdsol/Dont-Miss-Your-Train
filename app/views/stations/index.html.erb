@@ -1,13 +1,21 @@
+<div class="parent-flex">
+    <div class="title-box-flex">
+        <div class="title-flex">
 <h1> Stations </h1>
-
+</div>
+<div class="utility-flex">
 <h4>Search by Station</h4>
     <%=form_tag(stations_path, method: :get) do%>
     <%=text_field_tag(:search, params[:search])%>  
     <%=submit_tag ("Search"), name: "nil"%>
 <%end%>
+ </div>
+ </div>
 
+<div class="station-main-flex">
 <% @stations.each do |station| %>
-    <div class="container p-3 my-3 bg-white">
+    <div class="sub-flex">
+        <div class="content-flex">
     <h5><%= link_to station.name, station %></h5>
    
 
@@ -26,4 +34,8 @@
     <%= f.submit %>
     <%end%>
     </div>
+    </div>
 <%end %>
+
+ </div>
+ </div>

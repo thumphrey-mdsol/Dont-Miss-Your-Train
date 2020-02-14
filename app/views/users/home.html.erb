@@ -12,6 +12,7 @@
     <div class="main-flex">
             <%@favorites.each do |favorite|%>
         <div class="sub-flex">
+            <div class="content-flex">
                 <h2><%=favorite.label%> Station:</h2>
                 Station: <%=favorite.station.name%><br> <%= %>
                     <%if favorite.station.trains.length > 0%>
@@ -27,6 +28,7 @@
                         <p><%= "This station is not in use"%></p>
                     <%end%>
                 <%= link_to 'Delete', favorite, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
         </div>
             <%end%>
     </div>

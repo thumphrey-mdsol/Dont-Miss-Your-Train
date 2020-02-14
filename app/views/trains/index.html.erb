@@ -1,7 +1,14 @@
+<div class="parent-flex">
+    <div class="title-box-flex">
+        <div class="title-flex">
 <h1>Train Lines</h1>
+</div>
+</div>
 
+<div class="trian-main-flex">
 <% @trains.each do |train|%>
-    <div class="container p-3 my-3 border">
+    <div class="sub-flex">
+    <div class="content-flex">
     <h4>Line: </h4>
     <h5><%= train.name %></h5>
     <% if train.status%>
@@ -17,4 +24,7 @@
     <%end%>
         
     </div>
+    </div>
 <%end%>
+</div>
+</div>
