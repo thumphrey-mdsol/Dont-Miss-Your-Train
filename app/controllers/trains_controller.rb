@@ -5,5 +5,10 @@ class TrainsController < ApplicationController
         @trains = Train.all
 
     end
+
+    def show
+        @train = Train.find(params[:id])
+    end
+    
     
 end
