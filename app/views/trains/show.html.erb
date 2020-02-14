@@ -1,0 +1,12 @@
+<h2><%= @train.name %></h2>
+<h4>Status:</h4>
+<%if @train.status %>    
+    <div class="container p-3 my-3 border">
+    <p><%= @train.status%></p>
+    <p><%= @train.status_description%></p>
+    </div>
+<%else %>
+    <div class="container p-3 my-3 border">
+    GOOD SERVICE
+    </div>
+<%end %>
