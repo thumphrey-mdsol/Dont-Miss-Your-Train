@@ -21,8 +21,7 @@ class UsersController < ApplicationController
     def home
         @user = current_user
         @favorites = @user.favorites
-        @stations = @user.stations
-        # @closest_times = closest_time
+        @stations = @user.stations.sort
     end
 
     def edit

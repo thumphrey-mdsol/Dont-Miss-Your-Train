@@ -10,7 +10,7 @@
                 <li>Line: <%=train.name%> <br>
                 Destination: <%=train.destination%>  <br> Status: <%=train.status%> <br>
                     <ul><%train.closest_time.each do |arrival|%>
-                        <li><%=arrival.arrival_time%>:00</li>
+                        <li><%=arrival.arrival_time%></li>
                     <%end%></ul>
                 </li>
             <%end%></ul>

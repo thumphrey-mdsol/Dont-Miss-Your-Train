@@ -2,7 +2,7 @@ class FavoritesController < ApplicationController
     def new
         @favorite = Favorite.new
         @errors = flash[:errors]
-        @stations = Station.all
+        @stations = Station.all.sort_by{|station| station.name}
     end
 
     def create
