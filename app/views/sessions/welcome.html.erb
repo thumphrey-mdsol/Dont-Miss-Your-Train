@@ -11,9 +11,9 @@
 <%else %>
         <div class="container p-3 my-3 bg-white">
         <%=render "new"%>
+        Not a member yet? <%= link_to  "Sign Up!", '/users/new' %>
         </div>
         <%# button_to  "Login", '/login', method: :get %>
-        <%= button_to  "Sign Up", '/users/new', method: :get %>
 <%end %>
 
 

@@ -1,8 +1,8 @@
 <h1><%=@user.user_name.capitalize%>'s Favorites</h1>
-<%= button_to "Add a Favorite", new_favorite_path, method: :get %>
+<%= button_to "Follow a station", new_favorite_path, method: :get %>
 
 <%@favorites.each do |favorite|%>
-    <div class="container p-3 my-3 border">
+    <div class="container p-3 my-3 bg-white">
     <h2><%=favorite.label%> Station:</h2>
     Station: <%=favorite.station.name%><br> <%= %>
         <%if favorite.station.trains.length > 0%>
