@@ -6,16 +6,14 @@
 </div>
 
 <div class="main-flex">
+
+<% if !session[:user_id] %>
 <div class="sub-flex">
 <div class="content-flex">
 <% if @error %>
         <p>Error! <%= @error%></p>
 <%end %>
-
-<% if session[:user_id] %>
-        <%= button_to  "Logout", logout_path, method: :get %>
-<%else %>
-        <div class="container p-3 my-3 bg-white">
+        
         <%=render "new"%>
         Not a member yet? <%= link_to  "Sign Up!", '/users/new' %>
         </div>
