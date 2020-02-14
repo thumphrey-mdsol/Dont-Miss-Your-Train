@@ -13,11 +13,9 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap";
+//  @import "bootstrap";
  
-//  #container{
-//      background-color: white;
-//  }
+
 
 //  p.container{
 //      background-color: rgba(255, 255, 255, 0.63);
@@ -25,11 +23,55 @@
 
  body {
      background-image: linear-gradient(to bottom right, rgba(128, 128, 128, 0.363)), url("background.jpg");
-  background-attachment: fixed;
-  background-size: 100% 100%;
-     
+     background-size: 100% 100%;
+     background-attachment: fixed;
  }
 
- .flex-container{
+ .parent-flex{
      display: flex;
+     flex-direction: column;
+ }
+
+ .nav-flex{
+     display: flex;
+     height: 50px;
+    }
+ .nested-nav-flex{
+    display: flex;
+ }
+ .logout-flex{
+     display:flex;
+     align-self: flex-end;
+ }
+
+ .title-box-flex{
+     display: flex;
+     height: px;
+     justify-content: space-between;
+     border: black;
+    background-color: white;
+    align-items: flex-start;
+ }
+.title-flex{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.utility-flex{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+ .main-flex{
+    display: flex;
+    align-content: space-around;
+ }
+
+ .sub-flex{
+     display: flex;
+     border: black;
+     height: auto;
+     width: fit-content;
+     background-color: white;
+     flex-wrap: wrap;
  }

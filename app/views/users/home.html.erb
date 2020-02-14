@@ -1,29 +1,37 @@
-<div class="flex-container">
-<h1><%=@user.user_name.capitalize%>'s Favorites</h1>
-<%= button_to "Follow a station", new_favorite_path, method: :get %>
-
-<%@favorites.each do |favorite|%>
-    <div class="container p-3 my-3 bg-white">
-    <h2><%=favorite.label%> Station:</h2>
-    Station: <%=favorite.station.name%><br> <%= %>
-        <%if favorite.station.trains.length > 0%>
-            Train Lines:<ul><%favorite.station.trains.each do |train| %>
-                <li>Line: <%=train.name%> <br>
-                Destination: <%=train.destination%>  <br> Status: <%=link_to train.status, train%> <br>
-                    <ul><%train.closest_time.each do |arrival|%>
-                        <li><%=arrival.arrival_time%></li>
-                    <%end%></ul>
-                </li>
-            <%end%></ul>
-        <%else%>
-            <p><%= "This station is not in use"%></p>
-        <%end%>
-    <%= link_to 'Delete', favorite, method: :delete, data: { confirm: 'Are you sure?' } %>
+<div class="parent-flex">
+    <div class="title-box-flex">
+        <div class="title-flex">
+            <h1><%=@user.user_name.capitalize%>'s Favorites</h1>
+        </div>
+        <div class="utility-flex">
+            <%= button_to "Follow a station", new_favorite_path, method: :get %>
+            <%= button_to "Edit My Profile", edit_user_path(session[:user_id]), method: :get%>
+        </div>
     </div>
-<%end%>
+
+    <div class="main-flex">
+            <%@favorites.each do |favorite|%>
+        <div class="sub-flex">
+                <h2><%=favorite.label%> Station:</h2>
+                Station: <%=favorite.station.name%><br> <%= %>
+                    <%if favorite.station.trains.length > 0%>
+                        Train Lines:<ul><%favorite.station.trains.each do |train| %>
+                            <li>Line: <%=train.name%> <br>
+                            Destination: <%=train.destination%>  <br> Status: <%=link_to train.status, train%> <br>
+                                <ul><%train.closest_time.each do |arrival|%>
+                                    <li><%=arrival.arrival_time%></li>
+                                <%end%></ul>
+                            </li>
+                        <%end%></ul>
+                    <%else%>
+                        <p><%= "This station is not in use"%></p>
+                    <%end%>
+                <%= link_to 'Delete', favorite, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+            <%end%>
+    </div>
 
 
 
 
-<%= button_to "Edit My Profile", edit_user_path(session[:user_id]), method: :get%>
 </div>
