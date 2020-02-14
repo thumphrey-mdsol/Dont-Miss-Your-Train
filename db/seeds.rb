@@ -59,8 +59,8 @@ end
 #     end
     
 def arrival_time
-    a = rand(0..2).to_s
-    b = rand(0..3).to_s
+    a = rand(0..1).to_s
+    b = rand(0..9).to_s
     c = ":"
     d = rand(0..5).to_s
     e = rand(0..9).to_s
