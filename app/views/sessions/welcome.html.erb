@@ -1,14 +1,18 @@
+<div class="container bg-white">
 <h1>Welcome!</h1>
+</div>
 
 <% if @error %>
         <p>Error! <%= @error%></p>
 <%end %>
 
 <% if session[:user_id] %>
-        
-        <%= button_to  "Logout", logout_path, method: :post %>
+        <%= button_to  "Logout", logout_path, method: :get %>
 <%else %>
-        <%= button_to  "Login", '/login', method: :get %>
+        <div class="container p-3 my-3 bg-white">
+        <%=render "new"%>
+        </div>
+        <%# button_to  "Login", '/login', method: :get %>
         <%= button_to  "Sign Up", '/users/new', method: :get %>
 <%end %>
 

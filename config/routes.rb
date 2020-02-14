@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new', as: 'login'
   post '/sessions', to: 'sessions#create'
   get '/welcome', to: 'sessions#welcome', as: 'welcome'
-  post '/logout', to: 'sessions#destroy', as: 'logout'
+  get '/logout', to: 'sessions#destroy', as: 'logout'
   get '/home', to: 'users#home', as: "home"
   # get '/delete/favorite', to: 'favorites#destroy', as: 'delete_favorite'
 
