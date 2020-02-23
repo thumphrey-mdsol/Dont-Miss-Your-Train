@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.1'
 
+gem 'pg', '~> 0.18.4'
 gem 'json', '~> 1.8'
 gem 'activesupport'
 gem 'activerecord'
