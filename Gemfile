@@ -8,7 +8,7 @@ gem 'json', '~> 1.8'
 gem 'activesupport'
 gem 'activerecord'
 gem 'cgi'
-gem 'nokogiri', '~> 1.6'
+gem 'nokogiri', '~> 1.11'
 gem "rest-client"
 gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
